@@ -1,0 +1,14 @@
+@use 'base/mixins' as m;
+.acciones {
+  margin-top: 5rem;
+}
+
+.acciones a {
+  display: block;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.acciones a:last-of-type {
+  margin-bottom: 0;
+}

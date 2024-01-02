@@ -1,0 +1,21 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.login{
+    padding-top: 5rem;
+    .uptask{
+        @include m.textoDegradado(v.$cyan);
+    }
+
+    input[type="submit"]{
+        margin-top: 3rem;
+        border-radius: .5rem;
+        @include m.boton (v.$cyan, v.$blanco)
+    }
+
+    .acciones{
+        a{
+            color: v.$cyan;
+        }
+    }
+}

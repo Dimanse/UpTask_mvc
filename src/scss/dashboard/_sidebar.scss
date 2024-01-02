@@ -1,0 +1,110 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.sidebar{
+    opacity: 0;
+    background: linear-gradient(to right, v.$indigo 0%, lighten(v.$cyan, 10%)  100%);
+    height: 0;
+    overflow: hidden;
+    transition-property: opacity;
+    transition-duration: 500ms;
+
+    &.mostrar{
+        opacity: 1;
+        padding: 2rem;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        @include m.tablet { 
+            display: none;
+         }
+    }
+    &.ocultar{
+        opacity: 0;
+    }
+
+    @include m.tablet { 
+        opacity: 1;
+        height: 100%;
+        padding: 2rem;
+     }
+     .contenedor-sidebar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+         h2{
+             color: v.$blanco;
+             margin: 0;
+             text-align: center;
+         }
+
+        .cerrar-menu{
+            display: flex;
+            justify-content: center;
+            height: 2rem;
+            width: 2rem;
+            img {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            @include m.tablet {
+                display: none;
+            }
+        }
+     }
+
+    .sidebar-nav{
+        margin-top: 5rem;
+        a{
+            color: v.$blanco;
+            display: block;
+            margin-bottom: 2rem;
+            padding: .7rem;
+            font-size: 2.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            transition-property: background-color;
+            transition-duration: 300ms;
+            &:hover,
+            &.activo{
+                background-color: darken(v.$indigo, 10%);
+                border-radius: .5rem;
+            }
+
+            @include m.tablet { 
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                text-align: left;
+             }
+        }
+    }
+
+    .cerrar-sesion-mobile{
+        margin-top: 10rem;
+        @include m.tablet { 
+            display: none;
+         }
+
+        .cerrar-sesion{
+        background: linear-gradient(to top, v.$indigo 0%, lighten(v.$cyan, 10%) 100%);
+        color: v.$blanco;
+        border-radius: .6rem;
+        padding: 1.5rem 4rem;
+        display: block;
+        font-size: 2rem;
+        text-align: center;
+        transition-property: background;
+        transition-duration: 300ms;
+    
+        &:hover{
+            color: lighten(v.$rojo, 15%);
+        }
+        }
+    }
+}
+

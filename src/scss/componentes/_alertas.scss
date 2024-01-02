@@ -1,0 +1,33 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.alerta{
+    padding: 1rem 1rem 1rem 2rem ;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    max-width: 80rem;
+    
+
+    &.error{
+        background-color: lighten(v.$rojo, 55%);
+        border-left: .7rem solid lighten(v.$rojo, 10%);
+        color: lighten(v.$rojo, 10%);
+    }
+
+    &.exito{
+        background-color: lighten(v.$verde, 50%);
+        border-left: .7rem solid lighten(v.$verde, 10%);
+        color: lighten(v.$verde, 5%);
+        
+       
+    }
+
+    &.info{
+        background-color: lighten(v.$indigo, 40%);
+        border-left: .7rem solid lighten(v.$indigo, 10%);
+        color: lighten(v.$indigo, 10%);
+        
+    }
+}

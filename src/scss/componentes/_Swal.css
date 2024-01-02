@@ -1,0 +1,12 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+.custom-button {
+  height: 4rem;
+  width: 4rem;
+  margin-right: 1.5rem;
+  font-weight: 700;
+}
+
+.custom-button:last-of-type {
+  margin-right: 0;
+}

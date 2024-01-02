@@ -1,0 +1,1 @@
+@use 'base/variables' as v;@use 'base/mixins' as m;.modal{position:absolute;background-color:#000;top:0;right:0;left:0;bottom:0}

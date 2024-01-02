@@ -1,0 +1,94 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.modal{
+    position: absolute;
+    background-color: rgb(0 0 0 / .7);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    .formulario{
+        background-color: v.$blanco;
+        max-width: 60rem;
+        padding: 2rem;
+        border-radius: .6rem;
+        margin: 0 auto;
+        transform: translateY(-30rem);
+        transition-property: all;
+        transition-duration: 600ms;
+        transition-timing-function: ease-in;
+        opacity: 0;
+
+        input[type="text"]{
+            border: 1px solid v.$gris;
+            
+        }
+
+        .campo{
+            margin-bottom: 3rem;
+        }
+
+        legend{
+            color: v.$grisOscuro;
+            font-size: 2rem;
+            text-align: center;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 2rem;
+            border-radius: 1rem;
+        }
+
+       
+
+        label{
+            text-align: center;
+            
+        }
+
+        .opciones{
+            @include m.tablet { 
+                display: flex;
+                justify-content: space-between;
+
+             }
+            
+        }
+
+        .submit-nueva-tarea{
+            @include m.boton(v.$indigo, v.$blanco);
+            text-transform: capitalize !important;
+            font-weight: 700;
+            border-radius: .5rem;
+            margin-bottom: 1.5rem;
+            @include m.tablet { 
+                padding:.75rem 3rem;
+                margin-bottom: 0;
+             }
+        }
+
+        .cerrar-modal{
+            @include m.boton(v.$naranja, v.$blanco);
+            
+            
+            border-radius: .5rem;
+            margin-bottom: 1.5rem;
+            @include m.tablet { 
+                padding:.75rem 3rem;
+                margin-bottom: 0;
+             }
+            
+            
+        }
+        &.animar{
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 1;
+        }
+        &.cerrar{
+            transform: translateY(-200%);
+            opacity: 0;
+        }
+    }
+}

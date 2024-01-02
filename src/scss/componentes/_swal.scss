@@ -1,0 +1,43 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.custom-button{
+    height: 4rem;
+    width: 4rem;
+    margin-right: 1.5rem;
+    background-color: lighten(v.$indigo, 10%) !important;
+    &:last-of-type{
+        margin-right: 0;
+    }
+    
+    
+}
+
+.custom-button-cancel{
+    background-color: lighten(v.$gris, 5%) !important;
+    height: 4rem;
+    width: 4rem;
+}
+
+.title{
+    color: v.$azul;
+    
+}
+
+.swal2-confirm{
+    height: 4rem;
+    width: 4rem;
+    
+   
+}
+
+.swal2-cancel{
+    height: 4rem;
+    width: 4rem;
+    
+   
+}
+
+.text{
+    color: v.$negro;
+}
