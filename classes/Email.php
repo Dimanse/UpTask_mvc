@@ -25,7 +25,7 @@ class Email{
         $mail->SMTPAuth = true;
         $mail->Port = $_ENV['EMAIL_PORT'];
         $mail->Username = $_ENV['EMAIL_USER'];
-        $mail->Password = $_ENV['EMAIL_PASS'];
+        $mail->Password = $_ENV['EMAIL_PASSWORD'];
 
         $mail->setFrom('cuentas@Uptask.com');
         $mail->addAddress('cuentas@UpTask.com','UpTask.com');
@@ -124,7 +124,7 @@ class Email{
         $mail->SMTPAuth = true;
         $mail->Port = $_ENV['EMAIL_PORT'];
         $mail->Username = $_ENV['EMAIL_USER'];
-        $mail->Password = $_ENV['EMAIL_PASS'];
+        $mail->Password = $_ENV['EMAIL_PASSWORD'];
 
         $mail->setFrom('cuentas@appsalon.com');
         $mail->addAddress('cuentas@appsalon.com','AppSalon.com');
