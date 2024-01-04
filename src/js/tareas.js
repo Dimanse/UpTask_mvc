@@ -269,7 +269,7 @@
         // }
 
         try {
-            const url = '/api/tarea/actualizar';
+            const url = `${location.origin}/api/tarea/actualizar`;
 
             const respuesta = await fetch(url, {
                 method: 'POST',
@@ -354,7 +354,7 @@
         datos.append('proyectoId', obtenerProyecto());
 
         try {
-            const url = '/api/tarea/eliminar;'
+            const url = `${location.origin}/api/tarea/eliminar`;
             const respuesta = await fetch(url, {
                 method: 'POST',
                 body: datos
