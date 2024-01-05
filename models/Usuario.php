@@ -36,7 +36,7 @@ class Usuario extends ActiveRecord {
             self::$alertas['error'] [] = 'El Password Debe Tener al Menos 6 Caracteres';
         }
         if( $this->password !== $this->password2){
-            self::$alertas['error'] [] = 'Los emails son diferentes';
+            self::$alertas['error'] [] = 'Los Passwords son diferentes';
         }
         return self::$alertas;
     }
