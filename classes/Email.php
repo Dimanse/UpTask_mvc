@@ -17,6 +17,7 @@ class Email{
 
     public function enviarConfirmacion(){
 
+        
         // Crear el objeto de email
     
         $mail = new PHPMailer(true);
@@ -107,7 +108,7 @@ class Email{
         <h2>¡Gracias por registrarte en <span class='degradacion'>UpTask</span>!</h2>
         <p>Por favor confirma tu correo electrónico para que puedas comenzar a disfrutar de todos los servicios de
         <span class='degradacion'>UpTask</span></p>
-        <a href='" . $_ENV['APP_URL'] . "/confirmar?token=" . $this->token . "'><button>Verificar</button></a>
+        <a href='".$_ENV['APP_URL']."/confirmar?token=" . $this->token . "'><button>Verificar</button></a>
         <p>Si tú no te registraste en <span class='degradacion'>UpTask</span>, por favor ignora este correo electrónico.</p>
         <div><p></p></div>
         <p><span>Este correo electrónico fue enviado desde una dirección solamente de notificaciones que no puede aceptar correo electrónico entrante. Por favor no respondas a este mensaje.</span></p>
@@ -118,6 +119,7 @@ class Email{
     }
 
     public function enviarInsrucciones(){
+        
         $mail = new PHPMailer(true);
         $mail->isSMTP();
         $mail->Host = $_ENV['EMAIL_HOST'];
@@ -209,7 +211,7 @@ class Email{
         <h1 class='degradacion__heading'>". $this->nombre . "</h1>
         <h2>¡Gracias por ponerte en contacto con <span class='degradacion'>UpTask</span>,  ". $this->nombre ."!</h2>
         <p>Has solicitado reestablecer tu password, haz click en el boton para hacerlo.</p>
-        <a href='" . $_ENV['APP_URL'] . "/reestablecer?token=" . $this->token . "'><button>Reestablecer Password</button></a>
+        <a href='".$_ENV['APP_URL']."/reestablecer?token=" . $this->token . "'><button>Reestablecer Password</button></a>
         <p>Si tú no solicitaste esta información, por favor ignora este correo electrónico.</p>
         <div><p></p></div>
         <p><span>Este correo electrónico fue enviado desde una dirección solamente de notificaciones que no puede aceptar correo electrónico entrante. Por favor no respondas a este mensaje.</span></p>
