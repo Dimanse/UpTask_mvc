@@ -28,8 +28,8 @@ class Email{
         $mail->Username = $_ENV['EMAIL_USER'];
         $mail->Password = $_ENV['EMAIL_PASSWORD'];
 
-        $mail->setFrom($_ENV['EMAIL'], 'Uptask');
-        $mail->addAddress($this->email, $this->nombre);
+        $mail->setFrom('uptask.dimanse@gmail.com', 'Uptask');
+        $mail->addAddress('uptask.dimanse@gmail.com', 'Uptask');
         $mail->Subject = 'Confirma tu Cuenta';
 
         // set html
@@ -128,8 +128,8 @@ class Email{
         $mail->Username = $_ENV['EMAIL_USER'];
         $mail->Password = $_ENV['EMAIL_PASSWORD'];
 
-        $mail->setFrom($_ENV['EMAIL'], 'AppSalon');
-        $mail->addAddress($this->email, $this->nombre);
+        $mail->setFrom('uptask.dimanse@gmail.com', 'UpTask');
+        $mail->addAddress('uptask.dimanse@gmail.com', 'Uptask');
         $mail->Subject = 'Reestablece tu Password';
 
         // set html
