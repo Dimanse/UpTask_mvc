@@ -164,49 +164,51 @@ class Email{
     public function enviarInsrucciones(){
         
         // Crear el objeto de email
-        try {
-            //code...
         
-                $mail = new PHPMailer(true);
-                $mail->SMTPOptions = array(
-                    'ssl' => array(
-                        'verify_peer' => false,
-                        'verify_peer_name' => false,
-                        'allow_self_signed' => true
-                    )
-                );
     
-                $servers = array(
-                    array("smtp.gmail.com", 465),
-                    array("smtp.gmail.com", 587),
-                );
-                
-                foreach ($servers as $server) {
-                    list($server, $port) = $server;
-                    echo "<h1>Attempting connect to <tt>$server:$port</tt></h1>\n";
-                    flush();
-                    $socket = fsockopen($server, $port, $errno, $errstr, 10);
-                    if(!$socket) {
-                      echo "<p>ERROR: $server:".$_ENV['EMAIL_HOST']." - $errstr ($errno)</p>\n";
-                    } else {
-                      echo "<p>SUCCESS: $server:$port - ok</p>\n";
-                    }
-                    flush();
-                }
-                $mail->SMTPDebug = 0;
-                $mail->isSMTP();
-                $mail->SMTPAuth = true;
-                // $mail->SMTPSecure = 'tls';
-                // $mail->SMTPSecure = 'ssl';
-                // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                $mail->Host = $_ENV['EMAIL_HOST'];
-                $mail->Username = $_ENV['EMAIL_USER'];
-                $mail->Password = $_ENV['EMAIL_PASSWORD'];
-                $mail->Port = $_ENV['EMAIL_PORT'];
-                $mail->CharSet = 'UTF-8';
-                
-                $mail->setFrom($_ENV['EMAIL_USER']);
-                $mail->addAddress($_ENV['EMAIL_USER'], 'Uptask');
+        $mail = new PHPMailer(true);
+
+        // $mail->SMTPOptions = array(
+        //     'ssl' => array(
+        //         'verify_peer' => false,
+        //         'verify_peer_name' => false,
+        //         'allow_self_signed' => true
+        //     )
+        // );
+
+        //  $servers = array(
+        //      array("smtp.gmail.com", 465),
+        //      array("smtp.gmail.com", 587),
+        //  );
+        
+        //  foreach ($servers as $server) {
+        //      list($server, $port) = $server;
+        //      echo "<h1>Attempting connect to <tt>$server:$port</tt></h1>\n";
+        //      flush();
+        //      $socket = fsockopen($server, $port, $errno, $errstr, 10);
+        //      if(!$socket) {
+        //        echo "<p>ERROR: $server:".$_ENV['EMAIL_HOST']." - $errstr ($errno)</p>\n";
+        //      } else {
+        //        echo "<p>SUCCESS: $server:$port - ok</p>\n";
+        //      }
+        //      flush();
+        //  }
+
+
+        $mail->SMTPDebug = 0;
+        $mail->isSMTP();
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'tls';
+        // $mail->SMTPSecure = 'ssl';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Host = $_ENV['EMAIL_HOST'];
+        $mail->Username = $_ENV['EMAIL_USER'];
+        $mail->Password = $_ENV['EMAIL_PASSWORD'];
+        $mail->Port = $_ENV['EMAIL_PORT'];
+        $mail->CharSet = 'UTF-8';
+        
+        $mail->setFrom('uptask-dimanse@outlook.com');
+        $mail->addAddress('uptask-dimanse@outlook.com', 'Uptask');
                 $mail->Subject = 'Reestablece tu Password';
 
             // set html
@@ -296,12 +298,9 @@ class Email{
         </html>";
 
             $mail->send();
-            echo 'Correo enviado';
+            if(!$mail->send()) {   echo 'Mailer error: ' . $mail->ErrorInfo; } else {   echo 'Message enviado con éxito.'; } 
 
-        } catch (\Exception $error) {
-            echo 'Mensaje ' . $mail->ErrorInfo;
-            debuguear($error);
-        }
+            echo 'Correo enviado';
 
     }
 } 
