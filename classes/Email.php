@@ -141,12 +141,12 @@ class Email{
 
         </style>
         <body>
-            <h1 class='degradacion'>" . $this->nombre ."</h1>
-            <h2>¡Gracias por registrarte en <span class='degradacion'>UpTask</span>!</h2>
+            <h1><b>" . $this->nombre ."</b></h1>
+            <h2>¡Gracias por registrarte en <b>UpTask</b>!</h2>
             <p>Por favor confirma tu correo electrónico para que puedas comenzar a disfrutar de todos los servicios de
-            <span class='degradacion'>UpTask</span></p>
+            <b>UpTask</b></p>
             <a href='".$_ENV['APP_URL']."/confirmar?token=" . $this->token . "'><button>Verificar</button></a>
-            <p>Si tú no te registraste en <span class='degradacion'>UpTask</span>, por favor ignora este correo electrónico.</p>
+            <p>Si tú no te registraste en <b>UpTask</b>, por favor ignora este correo electrónico.</p>
             <div><p></p></div>
             <p><span>Este correo electrónico fue enviado desde una dirección solamente de notificaciones que no puede aceptar correo electrónico entrante. Por favor no respondas a este mensaje.</span></p>
         </body>
