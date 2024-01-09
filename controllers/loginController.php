@@ -75,7 +75,7 @@ class loginController{
                 $usuario->crearToken();
                 
                 // Crear un nuevo usuario
-                $resultado =  $usuario->guardar();
+                $resultado = $usuario->guardar();
 
                 // Enviar email
                 $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
