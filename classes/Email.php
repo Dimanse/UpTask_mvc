@@ -287,8 +287,8 @@ class Email{
 
         </style>
         <body>
-            <h1 class='degradacion__heading'>". $this->nombre . "</h1>
-            <h2>¡Gracias por ponerte en contacto con <span class='degradacion'>UpTask</span>,  ". $this->nombre ."!</h2>
+            <h1><b>". $this->nombre . "</b></h1>
+            <h2>¡Gracias por ponerte en contacto con <b>UpTask</b>,  ". $this->nombre ."!</h2>
             <p>Has solicitado reestablecer tu password, haz click en el boton para hacerlo.</p>
             <a href='". $_ENV['APP_URL'] ."/reestablecer?token=" . $this->token . "'><button>Reestablecer Password</button></a>
             <p>Si tú no solicitaste esta información, por favor ignora este correo electrónico.</p>
