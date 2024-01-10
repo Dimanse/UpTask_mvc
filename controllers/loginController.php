@@ -113,7 +113,7 @@ class loginController{
                     $usuario->guardar();
 
                     $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
-                    $email->enviarInsrucciones();
+                    $email->enviarInstrucciones();
                     
                     Usuario::setAlerta('exito','Hemos enviado las instrucciones a tu email');
                 }else{

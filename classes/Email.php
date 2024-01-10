@@ -1,11 +1,8 @@
-<?php
+<?php 
 
 namespace Classes;
-use PHPMailer\PHPMailer\PHPMailer;
-// use PHPMailer\PHPMailer\SMTP;
-// use PHPMailer\PHPMailer\Exception;
 
-// require_once __DIR__ .'../vendor/autoload.php';
+use PHPMailer\PHPMailer\PHPMailer;
 
 class Email {
     protected $email;
@@ -30,16 +27,16 @@ class Email {
         $mail->Username = $_ENV['EMAIL_USER'];
         $mail->Password = $_ENV['EMAIL_PASSWORD'];
 
-        $mail->setFrom('uptask.dimanse@outlook.com');
-        $mail->addAddress('uptask.dimanse@outlook.com', 'UpTask');
+        $mail->setFrom('uptask.dimanse@outlook.com', 'UpTask');
+        $mail->addAddress('uptask.dimanse@outlook.com');
         $mail->Subject = 'Confirma tu Cuenta';
 
         $mail->isHTML(TRUE);
         $mail->CharSet = 'UTF-8';
 
         $contenido = '<html>';
-        $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has Creado tu cuenta en <b>UpTask</b>, solo debes confirmarla en el siguiente enlace</p>";
-        $contenido .= "<p>Presiona aquí: <a href='".$_ENV['APP_URL']."/confirmar?token=" . $this->token . "'>Confirmar Cuenta</a></p>";
+        $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Has Creado tu cuenta en UpTask, solo debes confirmarla en el siguiente enlace</p>";
+        $contenido .= "<p>Presiona aquí: <a href='". $_ENV['APP_URL'] ."/confirmar?token=" . $this->token . "'>Confirmar Cuenta</a></p>";
         $contenido .= "<p>Si tu no creaste esta cuenta, puedes ignorar este mensaje</p>";
         $contenido .= '</html>';
 
@@ -61,8 +58,8 @@ class Email {
         $mail->Username = $_ENV['EMAIL_USER'];
         $mail->Password = $_ENV['EMAIL_PASSWORD'];
 
-        $mail->setFrom('uptask.dimanse@outlook.com');
-        $mail->addAddress('uptask.dimanse@outlook.com', 'UpTask');
+        $mail->setFrom('uptask.dimanse@outlook.com', 'UpTask');
+        $mail->addAddress('uptask.dimanse@outlook.com');
         $mail->Subject = 'Reestablece tu Password';
 
         $mail->isHTML(TRUE);
@@ -70,7 +67,7 @@ class Email {
 
         $contenido = '<html>';
         $contenido .= "<p><strong>Hola " . $this->nombre . "</strong> Parece que has olvidado tu password, sigue el siguiente enlace para recuperarlo</p>";
-        $contenido .= "<p>Presiona aquí: <a href='".$_ENV['APP_URL']."/reestablecer?token=" . $this->token . "'>Reestablecer Password</a></p>";
+        $contenido .= "<p>Presiona aquí: <a href='". $_ENV['APP_URL'] ."/reestablecer?token=" . $this->token . "'>Reestablecer Password</a></p>";
         $contenido .= "<p>Si tu no creaste esta cuenta, puedes ignorar este mensaje</p>";
         $contenido .= '</html>';
 
